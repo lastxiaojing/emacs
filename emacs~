@@ -1,4 +1,4 @@
-;; 语言环境字符设置
+;; 语言环境字符设置
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
@@ -28,9 +28,8 @@
 (global-set-key [end] 'end-of-buffer)
 ;; 切换窗口
 (global-set-key (kbd "C-.") 'other-window)
-;; 窗口快速切换
-
-
+;; 只保留当前窗口
+(local-set-key (kbd "C-1") 'C-x 1)
 
 ;; 终端下鼠标可用
 (xterm-mouse-mode t)
@@ -161,7 +160,7 @@
      ("popkit" . "http://elpa.popkit.org/packages/"))))
  '(package-selected-packages
    (quote
-    (flyspell-correct flyspell-correct-helm flyspell-correct-ivy flyspell-correct-popup flyspell-lazy flyspell-popup helm-flyspell ac-php-core async auto-complete avy avy-menu ccc cdb counsel dash dash-functional ddskk deferred direx distel-completion-lib ebdb es-lib f flx flx-ido go-mode helm helm-core helm-dash ido-completing-read+ ivy list-utils log4e migemo pcache persistent-soft php-mode popup pos-tip s sage-shell-mode seq swiper xcscope yasnippet yaxception company-ebdb company ubuntu-theme popwin popup-switcher popup-kill-ring popup-imenu popup-edit-menu popup-complete monokai-theme monokai-alt-theme idomenu ido-yes-or-no ido-vertical-mode ido-ubiquitous ido-springboard ido-sort-mtime ido-skk ido-select-window ido-occur ido-occasional ido-migemo ido-load-library ido-hacks ido-grid-mode ido-gnus ido-flex-with-migemo ido-exit-target ido-describe-bindings ido-complete-space-or-hyphen ido-clever-match ido-at-point go-snippets go-direx go-complete go-autocomplete go-add-tags go fuzzy-match fuzzy-format fuzzy el-swank-fuzzy darkokai-theme counsel-dash company-shell company-php company-go auto-complete-sage auto-complete-rst auto-complete-pcmp auto-complete-nxml auto-complete-exuberant-ctags auto-complete-distel auto-complete-clang-async auto-complete-clang auto-complete-c-headers auto-auto-indent ace-popup-menu))))
+    (company-ebdb company ubuntu-theme popwin popup-switcher popup-kill-ring popup-imenu popup-edit-menu popup-complete monokai-theme monokai-alt-theme idomenu ido-yes-or-no ido-vertical-mode ido-ubiquitous ido-springboard ido-sort-mtime ido-skk ido-select-window ido-occur ido-occasional ido-migemo ido-load-library ido-hacks ido-grid-mode ido-gnus ido-flex-with-migemo ido-exit-target ido-describe-bindings ido-complete-space-or-hyphen ido-clever-match ido-at-point go-snippets go-direx go-complete go-autocomplete go-add-tags go fuzzy-match fuzzy-format fuzzy el-swank-fuzzy darkokai-theme counsel-dash company-shell company-php company-go auto-complete-sage auto-complete-rst auto-complete-pcmp auto-complete-nxml auto-complete-exuberant-ctags auto-complete-distel auto-complete-clang-async auto-complete-clang auto-complete-c-headers auto-auto-indent ace-popup-menu))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
