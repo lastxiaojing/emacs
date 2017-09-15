@@ -1,4 +1,4 @@
-;; 语言环境字符设置
+;; 语言环境字符设置
 
 ;; Added by Package.el.  This must come before configurations of
 ;; installed packages.  Don't delete this line.  If you don't want it,
@@ -71,6 +71,9 @@
 (setq column-number-mode t)
 (setq line-number-mode t)
 (global-linum-mode t)
+
+;; 高亮当前行
+(global-hl-line-mode 1)
 
 ;; 不用tab字符indent, 这回引起很多奇怪的错误。编辑Makefile时候不用担心，因为makefile-mode 会把tab键设置成真正的tab字符，并增加高亮显示
 (setq-default indent-tabs-mode nil)
