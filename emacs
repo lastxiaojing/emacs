@@ -21,27 +21,15 @@
 ;; 处理shell-mode乱码，好像没作用
 ;; 语言环境字符集设置结束
 
-
 ;;;;;;;;;;;;;;;; 绑定快捷键
 ;; 设置home键 指向buffer开头  end指向buffer结尾
 (global-set-key [home] 'beginning-of-buffer)
 (global-set-key [end] 'end-of-buffer)
-;; 切换窗口
+;; 设置Ctrl+j 跳转到指定行
+(global-set-key (kbd "C-j") 'goto-line)
+;; 设置Ctrl+> 切换窗口 终端下不可用
 (global-set-key (kbd "C-.") 'other-window)
-;; 窗口快速切换
-
-
-
-;; 终端下鼠标可用
-(xterm-mouse-mode t)
-
-;; 主题设置
-(load-theme 'monokai-alt t)
-;; 主题设置结束
-
-;; 字体设置
-(set-default-font "-*-Courier New-normal-normal-normal-*-14-*-*-*-m-0-iso10646-1")
-;; 字体设置结束
+;;;;;;;;;;;;;;;; 绑定快捷键结束
 
 ;; 显示时间设置
 (display-time-mode 1) ;; 启用时间显示设置，在minibuffer上边显示
@@ -64,6 +52,12 @@
 ;; 关闭gnus启动时候的画面
 (setq gnus-inhibit-startup-message t)
 
+;; 不要菜单栏
+(setq menu-bar-mode nil)
+
+;; 不要工具栏
+(setq tool-bar-mode nil)
+
 ;; 使用y 代替yes  n 代替no
 (fset 'yes-or-no-p 'y-or-n-p)
 
@@ -75,8 +69,21 @@
 ;; 高亮当前行
 (global-hl-line-mode 1)
 
+;; 终端下鼠标可用
+(xterm-mouse-mode t)
+
+;; 主题设置
+;; (load-theme 'monokai-alt t)
+(load-theme 'tsdh-dark t)
+;; 主题设置结束
+
+;; 字体设置
+(set-default-font "-*-Courier New-normal-normal-normal-*-16-*-*-*-m-0-iso10646-1")
+;; 字体设置结束
+
+
 ;; 不用tab字符indent, 这回引起很多奇怪的错误。编辑Makefile时候不用担心，因为makefile-mode 会把tab键设置成真正的tab字符，并增加高亮显示
-(setq-default indent-tabs-mode nil)
+;; (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq tab-stop-list())
 
@@ -109,6 +116,8 @@
 
 ;; 粘贴板
 (setq x-select-enable-clipboard t)
+
+;; 窗口移动
 
 
 ;;; 定制操作习惯结束
@@ -158,13 +167,16 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+	("8aebf25556399b58091e533e455dd50a6a9cba958cc4ebb0aab175863c25b9a4" "a8245b7cc985a0610d71f9852e9f2767ad1b852c2bdea6f4aadc12cce9c4d6d0" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" "c92a0fece9ad256d83a0ce85df1f15e1c9280eba91c0cc06f8879b9572a855c7" "5f2ee0272ba16469ab93885879c7689a4fa9f57210f99869803db4343a703af0" default)))
  '(package-archives
    (quote
-    (("gnu" . "http://elpa.gnu.org/packages/")
-     ("popkit" . "http://elpa.popkit.org/packages/"))))
+	(("gnu" . "http://elpa.gnu.org/packages/")
+	 ("popkit" . "http://elpa.popkit.org/packages/"))))
  '(package-selected-packages
    (quote
-    (flyspell-correct flyspell-correct-helm flyspell-correct-ivy flyspell-correct-popup flyspell-lazy flyspell-popup helm-flyspell ac-php-core async auto-complete avy avy-menu ccc cdb counsel dash dash-functional ddskk deferred direx distel-completion-lib ebdb es-lib f flx flx-ido go-mode helm helm-core helm-dash ido-completing-read+ ivy list-utils log4e migemo pcache persistent-soft php-mode popup pos-tip s sage-shell-mode seq swiper xcscope yasnippet yaxception company-ebdb company ubuntu-theme popwin popup-switcher popup-kill-ring popup-imenu popup-edit-menu popup-complete monokai-theme monokai-alt-theme idomenu ido-yes-or-no ido-vertical-mode ido-ubiquitous ido-springboard ido-sort-mtime ido-skk ido-select-window ido-occur ido-occasional ido-migemo ido-load-library ido-hacks ido-grid-mode ido-gnus ido-flex-with-migemo ido-exit-target ido-describe-bindings ido-complete-space-or-hyphen ido-clever-match ido-at-point go-snippets go-direx go-complete go-autocomplete go-add-tags go fuzzy-match fuzzy-format fuzzy el-swank-fuzzy darkokai-theme counsel-dash company-shell company-php company-go auto-complete-sage auto-complete-rst auto-complete-pcmp auto-complete-nxml auto-complete-exuberant-ctags auto-complete-distel auto-complete-clang-async auto-complete-clang auto-complete-c-headers auto-auto-indent ace-popup-menu))))
+	(electric-spacing flycheck ac-php-core company dash flx go-mode list-utils auto-complete company-c-headers flx-ido flymake-go ido-completing-read+ php-mode popup pos-tip yaxception swiper seq sage-shell-mode popwin popup-switcher popup-kill-ring popup-imenu popup-edit-menu popup-complete php+-mode monokai-theme monokai-alt-theme log4e idomenu ido-ubiquitous ido-springboard ido-sort-mtime ido-skk ido-select-window ido-occur ido-occasional ido-migemo ido-load-library ido-hacks ido-grid-mode ido-gnus ido-flex-with-migemo ido-exit-target ido-describe-bindings ido-complete-space-or-hyphen ido-clever-match ido-at-point go-snippets go-direx go-complete go-autocomplete go-add-tags go fuzzy-match fuzzy-format fuzzy flyspell-popup flyspell-lazy flyspell-correct-popup flyspell-correct-ivy flyspell-correct-helm flymake-php dash-functional company-shell company-php company-go auto-complete-exuberant-ctags auto-complete-c-headers auto-auto-indent ace-popup-menu ac-php))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
